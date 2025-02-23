@@ -842,9 +842,8 @@ class _MediaListPage extends StatelessWidget {
 }
 
 class _MediaItemTile extends StatelessWidget {
-  final MediaItem item;
-
   const _MediaItemTile({Key? key, required this.item}) : super(key: key);
+  final MediaItem item;
 
   @override
   Widget build(BuildContext context) {
@@ -855,32 +854,115 @@ class _MediaItemTile extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      child: ListTile(
-        leading: SizedBox(
-          width: 80,  // 缩小宽度
-          height: 120, // 缩小高度并保持3:2比例
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: CachedNetworkImage(
-              imageUrl: item.coverUrl,
-              fit: BoxFit.cover,
-              memCacheWidth: 200,  // 新增内存缓存优化
-              memCacheHeight: 300,
-              placeholder: (_, __) => Container(
-                color: Colors.grey[200],
-                child: Center(child: CircularProgressIndicator(strokeWidth: 2)), // 缩小加载指示器
-              ),
-              errorWidget: (_, __, ___) => Icon(Icons.broken_image, size: 24), // 缩小错误图标
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => DetailPage(item: item),
             ),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // 图片区域
+              Hero(
+                tag: item.coverUrl,
+                child: Container(
+                  width: 80,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: CachedNetworkImage(
+                      imageUrl: item.coverUrl,
+                      fit: BoxFit.contain,
+                      placeholder: (_, __) => Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          valueColor: AlwaysStoppedAnimation(Colors.blue),
+                        ),
+                      ),
+                      errorWidget: (_, __, ___) => Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.broken_image, 
+                              size: 24, 
+                              color: Colors.grey[400]),
+                            Text('Échec du chargement',
+                              style: TextStyle(fontSize: 10, color: Colors.grey[500]))
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(width: 16),
+              // 文字信息区域
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      item.title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        height: 1.2,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Icon(Icons.star, color: Colors.amber, size: 18),
+                        SizedBox(width: 4),
+                        Text(
+                          '${item.averageRating.toStringAsFixed(1)}/5',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8),
+                    if (item.category != null)
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.blue.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          item.category!,
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              Icon(
+                Icons.chevron_right,
+                color: Colors.blue,
+                size: 28,
+              ),
+            ],
           ),
-        ),
-        title: Text(item.title, style: const TextStyle(fontWeight: FontWeight.bold)),
-        subtitle: Text('Note: ${item.averageRating.toStringAsFixed(1)}',
-            style: TextStyle(color: Colors.grey)),
-        trailing: const Icon(Icons.chevron_right, color: Colors.blue),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => DetailPage(item: item)),
         ),
       ),
     );
