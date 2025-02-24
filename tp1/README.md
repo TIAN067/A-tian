@@ -1,15 +1,24 @@
 # tp1
 ## Introduction
-Ce projet est une application permettant de gérer et d'organiser différents types de médias tels que :  
- Livres – Ajout, gestion et suivi de votre bibliothèque personnelle.  
- Bandes Dessinées (BDs)** – Gestion des collections de BD et suivi des lectures.  
- Films – Enregistrement, notation et avis sur les films visionnés.  
- Séries – Gestion des épisodes et saisons regardées.  
- Sports – Suivi des événements sportifs et équipes favorites.  
+Il est une application permettant aux utilisateurs de gérer et organiser différents types de médias :  
+📖 **Livres** 
+📚 **Bandes Dessinées (BDs)** 
+🎞️ **Films** 
+📺 **Séries**  
+⚽ **Sports**  
+
+ Mon projet cible tout le monde. L'application est conçue pour offrir une expérience simple et fluide aux amateurs de films, séries, livres et sports en leur permettant de sauvegarder, rechercher et interagir avec leurs contenus préférés.  
+
+## 🎯 **Fonctionnalités principales** 
+✅ **⭐ Favoris & Liste d'attente** – Marquez les médias que vous souhaitez suivre ou regarder plus tard.  
+✅ **🔍 Recherche avancée** – Trouvez rapidement des médias par titre, genre ou année.  
+✅ **📝 Notes et Commentaires** – Donnez une note aux films/séries et partagez vos avis.  
+✅ **🕒 Historique de visionnage** – Consultez la liste des médias que vous avez déjà lus ou regardés.  
+✅ **🎭 Interface personnalisée** – Catégorisez et filtrez vos médias pour une meilleure organisation.  
 
 ## Guide d'Installation et d'Exécution
 1.Prérequis
-Avant d'installer l'application, assurez-vous d'avoir les outils suivants installés :
+ Avant d'installer l'application, assurez-vous d'avoir les outils suivants installés :
 - [Flutter SDK](https://flutter.dev/docs/get-started/install) (Version stable recommandée)
 - Dart SDK (Inclus dans Flutter)
 - Un émulateur ou un appareil physique (Android/iOS)
@@ -17,9 +26,9 @@ Avant d'installer l'application, assurez-vous d'avoir les outils suivants instal
 - Git (pour cloner le projet)
 
 2.Cloner le projet
-Ouvrez un terminal et exécutez la commande suivante :
-git clone https://github.com/TIAN067/A-tian.git
-cd tp1
+ Ouvrez un terminal et exécutez la commande suivante :
+ git clone https://github.com/TIAN067/A-tian.git
+ cd tp1
 
 3.Exécuter l'application
 flutter run
