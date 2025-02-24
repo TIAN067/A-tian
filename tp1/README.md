@@ -6,7 +6,6 @@ Il est une application permettant aux utilisateurs de gérer et organiser diffé
 🎞️ **Films** 
 📺 **Séries**  
 ⚽ **Sports**  
-
  Mon projet cible tout le monde. L'application est conçue pour offrir une expérience simple et fluide aux amateurs de films, séries, livres et sports en leur permettant de sauvegarder, rechercher et interagir avec leurs contenus préférés.  
 
 ## 🎯 **Fonctionnalités principales** 
@@ -17,21 +16,19 @@ Il est une application permettant aux utilisateurs de gérer et organiser diffé
 ✅ **🎭 Interface personnalisée** – Catégorisez et filtrez vos médias pour une meilleure organisation.  
 
 ## Guide d'Installation et d'Exécution
-1.Prérequis
- Avant d'installer l'application, assurez-vous d'avoir les outils suivants installés :
+1.Prérequis: Avant d'installer l'application, assurez-vous d'avoir les outils suivants installés :
 - [Flutter SDK](https://flutter.dev/docs/get-started/install) (Version stable recommandée)
 - Dart SDK (Inclus dans Flutter)
 - Un émulateur ou un appareil physique (Android/iOS)
 - Un éditeur de code (ex : Visual Studio Code, Android Studio)
 - Git (pour cloner le projet)
 
-2.Cloner le projet
- Ouvrez un terminal et exécutez la commande suivante :
- git clone https://github.com/TIAN067/A-tian.git
- cd tp1
+2.Cloner le projet : Ouvrez un terminal et exécutez la commande suivante :
+ - git clone https://github.com/TIAN067/A-tian.git
+ - cd tp1
 
 3.Exécuter l'application
-flutter run
+- flutter run
 
 ## Getting Started
 
